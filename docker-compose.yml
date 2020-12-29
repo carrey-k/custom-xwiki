@@ -6,9 +6,13 @@ services:
       POSTGRES_DB: bicc_xwiki
       POSTGRES_USER: dockeruser
       POSTGRES_PASSWORD: docker2020
+      HTTP_PROXY: http://7.40.23.201:3128
+      HTTPS_PROXY: http://7.40.23.201:3128
     logging:
       driver: "none"
     restart: unless-stopped
+    ports:
+      - "5432:5432"
     volumes:
       - db-data:/var/lib/postgresql/data
 
@@ -23,9 +27,11 @@ services:
       DB_USER: dockeruser
       DB_PASS: docker2020
       DB_NAME: bicc_xwiki
+      HTTP_PROXY: http://7.40.23.201:3128
+      HTTPS_PROXY: http://7.40.23.201:3128
     restart: unless-stopped
     ports:
-      - "50080:3000"
+      - "80:3000"
 
 volumes:
   db-data:

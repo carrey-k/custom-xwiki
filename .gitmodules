@@ -1,0 +1,3 @@
+[submodule "sideload"]
+	path = sideload
+	url = https://github.com/Requarks/wiki-localization.git

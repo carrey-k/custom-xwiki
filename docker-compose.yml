@@ -29,9 +29,13 @@ services:
       DB_NAME: bicc_xwiki
       HTTP_PROXY: http://7.40.23.201:3128
       HTTPS_PROXY: http://7.40.23.201:3128
+      OFFLINE_ACTIVE: 1
     restart: unless-stopped
     ports:
       - "80:3000"
+    volumes:
+      - ./sideload:/wiki/data/sideload
+      - ./config.yml:/wiki/config.yml
 
 volumes:
   db-data:
